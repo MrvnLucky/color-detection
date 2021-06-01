@@ -43,7 +43,7 @@ def color_histogram_of_test_image(test_src_image):
             feature_data = red + ',' + green + ',' + blue
             # print(feature_data)
 
-    with open('test.data', 'w') as myfile:
+    with open('data/test.data', 'w') as myfile:
         myfile.write(feature_data)
 
 
@@ -92,7 +92,7 @@ def color_histogram_of_training_image(img_name):
             red = str(elem)
             feature_data = red + ',' + green + ',' + blue
 
-    with open('training.data', 'a') as myfile:
+    with open('data/training.data', 'a') as myfile:
         myfile.write(feature_data + ',' + data_source + '\n')
 
 
@@ -124,4 +124,4 @@ def training():
 
     # blue color training images
     for f in os.listdir('./training_dataset/blue'):
-        color_histogram_of_training_image('./training_dataset/blue/' + f)		
+        color_histogram_of_training_image('./training_dataset/blue/' + f)
