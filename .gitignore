@@ -1,3 +1,6 @@
+# RGB data made when running program
+*.data
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
