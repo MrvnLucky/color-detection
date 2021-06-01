@@ -17,13 +17,13 @@ cap = cv2.VideoCapture(0)
 prediction = 'n.a.'
 
 # checking whether the training data is ready
-PATH = './data/training.data'
+PATH = './training_dataset/training.data'
 
 if os.path.isfile(PATH) and os.access(PATH, os.R_OK):
     print('training data is ready, classifier is loading...')
 else:
     print('training data is being created...')
-    open('data/training.data', 'w')
+    open('training_dataset/training.data', 'w')
     color_histogram_feature_extraction.training()
     print('training data is ready, classifier is loading...')
 
@@ -55,7 +55,8 @@ while True:
 
     color_histogram_feature_extraction.color_histogram_of_test_image(frame)
 
-    prediction = knn_classifier.main('data/training.data', 'data/test.data')
+    prediction = knn_classifier.main(
+        'training_dataset/training.data', 'training_dataset/test.data')
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
