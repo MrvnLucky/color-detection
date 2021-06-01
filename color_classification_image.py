@@ -1,11 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-# -------------------------------------------------------------------------
-# --- Author         : Ahmet Ozlu
-# --- Mail           : ahmetozlu93@gmail.com
-# --- Date           : 8th July 2018 - before Google inside look 2018 :)
-# -------------------------------------------------------------------------
-
 import cv2
 from color_recognition_api import color_histogram_feature_extraction
 from color_recognition_api import knn_classifier

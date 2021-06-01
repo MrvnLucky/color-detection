@@ -1,11 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-# ----------------------------------------------
-# --- Author         : Ahmet Ozlu
-# --- Mail           : ahmetozlu93@gmail.com
-# --- Date           : 31st December 2017 - new year eve :)
-# ----------------------------------------------
-
 import csv
 import random
 import math
@@ -27,7 +19,7 @@ def kNearestNeighbors(training_feature_vector, testInstance, k):
     length = len(testInstance)
     for x in range(len(training_feature_vector)):
         dist = calculateEuclideanDistance(testInstance,
-                training_feature_vector[x], length)
+                                          training_feature_vector[x], length)
         distances.append((training_feature_vector[x], dist))
     distances.sort(key=operator.itemgetter(1))
     neighbors = []
@@ -56,7 +48,7 @@ def loadDataset(
     filename2,
     training_feature_vector=[],
     test_feature_vector=[],
-    ):
+):
     with open(filename) as csvfile:
         lines = csv.reader(csvfile)
         dataset = list(lines)
@@ -77,11 +69,13 @@ def loadDataset(
 def main(training_data, test_data):
     training_feature_vector = []  # training feature vector
     test_feature_vector = []  # test feature vector
-    loadDataset(training_data, test_data, training_feature_vector, test_feature_vector)
+    loadDataset(training_data, test_data,
+                training_feature_vector, test_feature_vector)
     classifier_prediction = []  # predictions
     k = 3  # K value of k nearest neighbor
     for x in range(len(test_feature_vector)):
-        neighbors = kNearestNeighbors(training_feature_vector, test_feature_vector[x], k)
+        neighbors = kNearestNeighbors(
+            training_feature_vector, test_feature_vector[x], k)
         result = responseOfNeighbors(neighbors)
         classifier_prediction.append(result)
-    return classifier_prediction[0]		
+    return classifier_prediction[0]
